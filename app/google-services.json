@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "179612824348",
+    "firebase_url": "https://mysoko-1e0b3.firebaseio.com",
+    "project_id": "mysoko-1e0b3",
+    "storage_bucket": "mysoko-1e0b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179612824348:android:b9759bc790b006200600d9",
+        "android_client_info": {
+          "package_name": "com.nicholas.mySoko"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "179612824348-eb252m1lm01de5tvlofvpgvd1rgjlog1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nicholas.mySoko",
+            "certificate_hash": "88858a00724a3527329c5f9d9939b4da1b5030bd"
+          }
+        },
+        {
+          "client_id": "179612824348-qsbdsakrtc8rl6s9umav7l2r2kboehv5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsuA-jmw-_uPGFciCbzHTe9-WQRDSJzOk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179612824348-qsbdsakrtc8rl6s9umav7l2r2kboehv5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
