@@ -5,11 +5,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -25,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -58,6 +61,8 @@ public class AdminAddNewProductsActivity extends AppCompatActivity {
         InputproductPrice=(EditText)findViewById(R.id.product_price);
         product_img=(ImageView)findViewById(R.id.select_product_image);
         add_product_btn=(Button)findViewById(R.id.add_product);
+
+        loadingBar=new ProgressDialog(this);
 
 
 
@@ -102,16 +107,14 @@ public class AdminAddNewProductsActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode==GalleryPick && requestCode==RESULT_OK && data!=null){
-
-        ImageUri=data.getData();
-
-        product_img.setImageURI(ImageUri);
-
-
+        if (requestCode==GalleryPick &&resultCode==
+                RESULT_OK && data!=null && data.getData()!=null){
+            ImageUri = data.getData();
+            Picasso.with(this).load(ImageUri).into(product_img);
+            //You Can Also Use
+            //mImageView.setImageURI(mImageUri);
         }
-}
+    }
 
     private  void  ValidateProductData(){
 
@@ -252,6 +255,10 @@ public class AdminAddNewProductsActivity extends AppCompatActivity {
                             loadingBar.dismiss();
 
                             Toast.makeText(AdminAddNewProductsActivity.this, "Product Added Successfully", Toast.LENGTH_SHORT).show();
+
+                            Intent intent=new Intent(AdminAddNewProductsActivity.this,AdminCategoryActivity.class);
+                            startActivity(intent);
+
                         }else
                         {
                             Intent intent=new Intent(AdminAddNewProductsActivity.this,AdminCategoryActivity.class);
@@ -268,6 +275,7 @@ public class AdminAddNewProductsActivity extends AppCompatActivity {
 
 
     }
+
 
 
 }
