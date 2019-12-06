@@ -167,7 +167,8 @@ public class LoginActivity extends AppCompatActivity {
 
                                 loadingBar.dismiss();
 
-                               Intent intent=new Intent(LoginActivity.this,Home3Activity.class);
+                               Intent intent=new Intent(LoginActivity.this,Details.class);
+                               Login_Adaptor.CurrentonlineUsers = Usersdata;
                                startActivity(intent);
                                finish();
 
